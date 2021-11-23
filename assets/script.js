@@ -1,9 +1,5 @@
-
-let yourName = "Malysha Divers"
-document.getElementById('credit').textContent = `Created by ${MlayshaDivers}`
 // Gingerbread
 let gbTd = document.querySelector("#qty-gb") 
-let gb = localStorage.getItem('gb');
 if (gb === null) {
     gb = 0;
 } else {
@@ -13,7 +9,6 @@ gbTd.textContent = gb;
 
 // Chocolate Chip
 let ccTd = document.querySelector("#qty-cc")
-let cc = localStorage.getItem('cc');
 if (cc === null) {
     cc = 0;
 } else {
@@ -23,7 +18,6 @@ ccdTd.textContent = cc;
 
 // Sugar Sprinkle
 let sugar = document.querySelector("#qty-sugar")
-let sugar = localStorage.getItem('sugar');
 if (sugar === null) {
     sugar = 0;
 } else {
@@ -33,74 +27,69 @@ sugardTd.textContent = sugar;
 
 // total
 let totalqtyTd = document.querySelector('#qty-total');
-totalqtyTd.context = gd + cc + ss;
+totalqtyTd.context = gb + cc + sugar;
 
 
 // selectors
-let gbDiv = document.querySelector("Gingerbread");
-let ccDiv = document.querySelector("Chocolate Chip");
-let ssDiv = document.querySelector("Sugar Sprinkle");
+let gbDiv = document.querySelector("#Gingerbread");
+let ccDiv = document.querySelector("#Chocolate-Chip");
+let ssDiv = document.querySelector("#Sugar-Sprinkle");
 
 // event listner for Gingerbread
-document.getElementById("#add-gb").addEventListener('click', function(){
-    gb = gd + 1;
+gbDiv.append('#add-gb');
+document.getElementById('#add-gb').addEventListener('click', function(){
+    gb = gb + 1;
     gbTd.textContent = gb;
 
-    totalqtyTd.textcontent = gb + cc + ss;
+    totalqtyTd.textcontent = gb + cc + sugar;
 })
 
+gdDiv.append('#minus-gb');
 document.getElementById('#minus-gb').addEventListener('click', function(){
-    gb = gd - 1;
+    gb = gb - 1;
     gbTd.textContent = gb;
-    localStorage.setItem('gb', gb);
-    totalqtyTd.textcontent = gb + cc + ss;
+
+    totalqtyTd.textcontent = gb + cc + sugar;
 })
 
 // event listner for chocolate chip
+ccDiv.append('#add-cc');
 document.getElementById('#add-cc').addEventListener('click', function(){
     cc = cc + 1;
     ccTd.textContent = cc;
-    localStorage.setItem('cc', cc);
-    totalqtyTd.textcontent = gb + cc + ss;
+    
+    totalqtyTd.textcontent = gb + cc + sugar;
 })
 
+ccDiv.append('#minus-cc');
 document.getElementById('#minus-cc').addEventListener('click', function(){
     cc = cc - 1;
     ccTd.textContent = cc;
-    localStorage.setItem('cc', cc);
-    totalqtyTd.textcontent = gb + cc + ss;
+
+    totalqtyTd.textcontent = gb + cc + sugar;
 })
 
 
 // event listner for Sugar Sprinkle
+sugarDiv.append('#add-sugar');
 document.getElementById('#add-sugar').addEventListener('click', function(){
     sugar = sugar + 1;
-    sugarTd.textContent = ss;
-    localStorage.setItem('ss', ss);
-    totalqtyTd.textcontent = gb + cc + ss;
+    sugarTd.textContent = sugar;
+
+    totalqtyTd.textcontent = gb + cc + sugar;
 })
 
-document.getElementById('#minus-sugar').addEventListener('click', function(){
+sugarDiv.append('#minus-sugar');
+document.getElementById('minus-sugar').addEventListener('click', function(){
     sugar = sugar - 1;
-    sugarTd.textContent = ss;
-    localStorage.setItem('ss', ss);
-    totalqtyTd.textcontent = gb + cc + ss;
+    sugarTd.textContent = sugar;
+
+    totalqtyTd.textcontent = gb + cc + sugar;
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+let yourName = "Malysha Divers"
+document.getElementById('credit').textContent = `Created by ${MalyshaDivers}`
 
 
 
